@@ -10,6 +10,7 @@ import { WorkspaceManager } from "./workspace/WorkspaceManager"
 import { SmartCampaignOrchestrator } from "./campaigns/SmartCampaignOrchestrator"
 import { CommunicationHub } from "./communication/CommunicationHub"
 import { LiveDashboard } from "./live/LiveDashboard"
+import { TeamCollaboration } from "./collaboration/TeamCollaboration"
 import { cn } from "../lib/utils"
 
 interface CRMLayoutProps {
@@ -37,7 +38,7 @@ export function CRMLayout({ className }: CRMLayoutProps) {
       case "home":
         return <LiveDashboard />
       case "dialer":
-        return <CommunicationHub />
+        return <TeamCollaboration />
       case "campaigns":
         return <SmartCampaignOrchestrator />
       case "agent-studio":
