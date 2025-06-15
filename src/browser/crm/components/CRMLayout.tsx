@@ -7,6 +7,8 @@ import { ExtensionManager } from "./extensions/ExtensionManager"
 import { AgentStudio } from "./agent-studio/AgentStudio"
 import { DataIntegration } from "./data/DataIntegration"
 import { WorkspaceManager } from "./workspace/WorkspaceManager"
+import { SmartCampaignOrchestrator } from "./campaigns/SmartCampaignOrchestrator"
+import { CommunicationHub } from "./communication/CommunicationHub"
 import { cn } from "../lib/utils"
 
 interface CRMLayoutProps {
@@ -34,17 +36,9 @@ export function CRMLayout({ className }: CRMLayoutProps) {
       case "home":
         return <Dashboard />
       case "dialer":
-        return (
-          <div className="crm-flex crm-items-center crm-justify-center crm-h-full">
-            <p className="crm-text-muted-foreground">VOIP Dialer - Coming Soon</p>
-          </div>
-        )
+        return <CommunicationHub />
       case "campaigns":
-        return (
-          <div className="crm-flex crm-items-center crm-justify-center crm-h-full">
-            <p className="crm-text-muted-foreground">Campaigns - Coming Soon</p>
-          </div>
-        )
+        return <SmartCampaignOrchestrator />
       case "agent-studio":
         return <AgentStudio />
       case "settings":
