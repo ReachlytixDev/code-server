@@ -3,6 +3,10 @@ import { ActivityBar } from "./activity-bar/ActivityBar"
 import { Header } from "./ui/header"
 import { CopilotChat } from "./copilot/CopilotChat"
 import { Dashboard } from "./home/Dashboard"
+import { ExtensionManager } from "./extensions/ExtensionManager"
+import { AgentStudio } from "./agent-studio/AgentStudio"
+import { DataIntegration } from "./data/DataIntegration"
+import { WorkspaceManager } from "./workspace/WorkspaceManager"
 import { cn } from "../lib/utils"
 
 interface CRMLayoutProps {
@@ -42,15 +46,15 @@ export function CRMLayout({ className }: CRMLayoutProps) {
           </div>
         )
       case "agent-studio":
-        return (
-          <div className="crm-flex crm-items-center crm-justify-center crm-h-full">
-            <p className="crm-text-muted-foreground">Agent Studio - Coming Soon</p>
-          </div>
-        )
+        return <AgentStudio />
       case "settings":
         return (
-          <div className="crm-flex crm-items-center crm-justify-center crm-h-full">
-            <p className="crm-text-muted-foreground">Settings - Coming Soon</p>
+          <div className="crm-space-y-6 crm-p-6">
+            <div className="crm-space-y-8">
+              <ExtensionManager />
+              <DataIntegration />
+              <WorkspaceManager />
+            </div>
           </div>
         )
       default:
