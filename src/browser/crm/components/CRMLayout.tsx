@@ -9,6 +9,7 @@ import { DataIntegration } from "./data/DataIntegration"
 import { WorkspaceManager } from "./workspace/WorkspaceManager"
 import { SmartCampaignOrchestrator } from "./campaigns/SmartCampaignOrchestrator"
 import { CommunicationHub } from "./communication/CommunicationHub"
+import { LiveDashboard } from "./live/LiveDashboard"
 import { cn } from "../lib/utils"
 
 interface CRMLayoutProps {
@@ -34,7 +35,7 @@ export function CRMLayout({ className }: CRMLayoutProps) {
       case "copilot":
         return <CopilotChat className="crm-h-full" />
       case "home":
-        return <Dashboard />
+        return <LiveDashboard />
       case "dialer":
         return <CommunicationHub />
       case "campaigns":
