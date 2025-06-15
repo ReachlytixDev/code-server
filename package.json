@@ -33,6 +33,9 @@
     "lint:ts": "eslint --max-warnings=0 --fix $(git ls-files '*.ts' '*.js' | grep -v 'lib/vscode')",
     "test": "echo 'Run npm run test:unit or npm run test:e2e' && exit 1",
     "watch": "VSCODE_DEV=1 VSCODE_IPC_HOOK_CLI= NODE_OPTIONS='--max_old_space_size=32384 --trace-warnings' ts-node ./ci/dev/watch.ts",
+    "watch:crm": "concurrently \"npm run watch\" \"npx tailwindcss -i ./src/browser/crm/styles/globals.css -o ./src/browser/crm/styles/output.css --watch\"",
+    "build:crm": "./scripts/build-crm.sh",
+    "test:crm": "echo 'CRM tests not implemented yet'",
     "icons": "./ci/dev/gen_icons.sh"
   },
   "main": "out/node/entry.js",
@@ -57,6 +60,7 @@
     "@types/trusted-types": "^2.0.4",
     "@types/ws": "^8.5.5",
     "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
     "doctoc": "^2.2.1",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.0.0",
